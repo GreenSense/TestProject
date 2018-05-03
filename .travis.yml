@@ -1,0 +1,21 @@
+sudo: required
+
+language: csharp
+
+mono:
+  - latest
+
+services:
+  - docker
+
+install:
+  - git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master
+  - git fetch --no-tags
+  - git checkout $TRAVIS_BRANCH
+  - sudo sh prepare.sh
+  - sh init.sh
+  - git remote set-url origin https://${GHTOKEN}@github.com/GreenSense/TestProject.git
+
+script:
+  - sh build.sh
+  - sh test.sh
