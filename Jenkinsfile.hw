@@ -20,7 +20,7 @@ pipeline {
                 sh 'sh prepare.sh'
             }
         }
-        /*stage('Init') {
+        stage('Init') {
             when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh init.sh'
@@ -32,7 +32,7 @@ pipeline {
                 sh 'sh build.sh'
             }
         }
-        stage('Test') {
+        /*stage('Test') {
             when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh test.sh'
