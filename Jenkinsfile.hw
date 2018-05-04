@@ -32,34 +32,53 @@ pipeline {
         stage('Build') {
             when {
                 // Only say hello if a "greeting" is requested
-                expression { $SKIP_CI = 0 }
+                expression { $SKIP_CI == 0 }
             }
             steps {
-            
                 sh 'sh build.sh'
             }
         }
         stage('Test') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { $SKIP_CI == 0 }
+            }
             steps {
                 sh 'sh test.sh'
             }
         }
         stage('Clean') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { $SKIP_CI == 0 }
+            }
             steps {
                 sh 'sh clean.sh'
             }
         }
         stage('Graduate') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { $SKIP_CI == 0 }
+            }
             steps {
                 sh 'sh graduate.sh'
             }
         }
         stage('Increment Version') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { $SKIP_CI == 0 }
+            }
             steps {
               sh 'sh increment-version.sh'
             }
         }
         stage('Push Version') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { $SKIP_CI == 0 }
+            }
             steps {
                 sh 'sh push-version.sh'
             }
