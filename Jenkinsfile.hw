@@ -88,5 +88,4 @@ pipeline {
 Boolean shouldSkipBuild() {
     output = sh(script: "git log -1 --pretty=%B", returnStdout: true)
     output ==~ /(?m).*skipci.*/
-    echo "$OUTPUT"
 }
