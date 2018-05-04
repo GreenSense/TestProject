@@ -103,6 +103,6 @@ pipeline {
     }
 }
 def IsSkipCI(l) {
-    . ./check-ci-skip.sh
+    sh check-ci-skip.sh
     return $SKIP_CI
 }
