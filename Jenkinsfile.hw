@@ -20,7 +20,7 @@ pipeline {
                 sh 'sh prepare.sh'
             }
         }
-        stage('Init') {
+        /*stage('Init') {
             when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh init.sh'
@@ -60,7 +60,7 @@ pipeline {
             steps {
                 sh 'sh push-version.sh'
             }
-        }
+        }*/
     }
     post {
         always {
