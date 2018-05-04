@@ -85,10 +85,5 @@ pipeline {
         }
     }
 }
-Boolean shouldSkipBuild() {
-    //output = sh(script: "git log -1 --pretty=%B", returnStdout: true)
-    //output ==~ /(?m).*skipci.*/
-    
-    return sh(script: "sh check-ci-skip.sh", returnStdout: true)
-}
+def shouldSkipBuild = sh(script: 'sh check-ci-skip.sh', returnStdout: true)
 
