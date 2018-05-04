@@ -59,6 +59,7 @@ pipeline {
         stage('Push Version') {
             when { expression { !shouldSkipBuild() } }
             steps {
+                sh 'sh commit-version.sh'
                 sh 'sh push-version.sh'
             }
         }
