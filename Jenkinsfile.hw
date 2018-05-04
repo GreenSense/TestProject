@@ -32,7 +32,7 @@ pipeline {
                 sh 'sh build.sh'
             }
         }
-        /*stage('Test') {
+        stage('Test') {
             when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh test.sh'
@@ -60,7 +60,7 @@ pipeline {
             steps {
                 sh 'sh push-version.sh'
             }
-        }*/
+        }
     }
     post {
         always {
