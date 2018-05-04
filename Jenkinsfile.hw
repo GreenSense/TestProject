@@ -87,6 +87,6 @@ pipeline {
 }
 Boolean shouldSkipBuild() {
     output = sh(script: "git log -1 --pretty=%B", returnStdout: true)
-    output ==~ grep -c '.*\[ci skip\].*'
+    output ==~ /(?m).*skipci.*/
     echo "$OUTPUT"
 }
