@@ -27,7 +27,7 @@ pipeline {
         stage('Build') {
             when {
                 expression {
-                    return IsSkipCI()
+                    return !IsSkipCI()
                 }
             }
             steps {
@@ -97,7 +97,7 @@ pipeline {
         }
     }
 }
-def IsSkipCI(l) {
+def IsSkipCI() {
     sh check-ci-skip.sh
     return $SKIP_CI
 }
