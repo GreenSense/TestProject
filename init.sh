@@ -1,1 +1,1 @@
-echo "Initializing"
+echo "Initializing..."

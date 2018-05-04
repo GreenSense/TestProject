@@ -1,1 +1,1 @@
-echo "Cleaning"
+echo "Cleaning..."
