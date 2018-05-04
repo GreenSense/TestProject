@@ -15,7 +15,7 @@ pipeline {
             }
         }
         stage('Prepare') {
-            when { expression { return !shouldSkipBuild } }
+            when { expression { return !shouldSkipBuild() } }
             steps {
                 sh 'sh prepare.sh'
             }
@@ -85,5 +85,13 @@ pipeline {
         }
     }
 }
-def shouldSkipBuild = sh(script: 'sh check-ci-skip.sh', returnStdout: true)
+Boolean shouldSkipBuild() {
+    //output = sh(script: "git log -1 --pretty=%B", returnStdout: true)
+    //output ==~ /(?m).*skipci.*/
+    
+    return sh(
+        script: "sh check-ci-skip.sh',
+        returnStdout: true
+    ) == 1
+}
 
