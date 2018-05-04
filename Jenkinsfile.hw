@@ -31,8 +31,9 @@ pipeline {
         }
         stage('Build') {
             when {
-                // Only say hello if a "greeting" is requested
-                expression { $SKIP_CI == 0 }
+                expression {
+                    return $SKIP_CI == 0
+                }
             }
             steps {
                 sh 'sh build.sh'
@@ -40,7 +41,6 @@ pipeline {
         }
         stage('Test') {
             when {
-                // Only say hello if a "greeting" is requested
                 expression { $SKIP_CI == 0 }
             }
             steps {
@@ -49,7 +49,6 @@ pipeline {
         }
         stage('Clean') {
             when {
-                // Only say hello if a "greeting" is requested
                 expression { $SKIP_CI == 0 }
             }
             steps {
@@ -58,7 +57,6 @@ pipeline {
         }
         stage('Graduate') {
             when {
-                // Only say hello if a "greeting" is requested
                 expression { $SKIP_CI == 0 }
             }
             steps {
@@ -67,7 +65,6 @@ pipeline {
         }
         stage('Increment Version') {
             when {
-                // Only say hello if a "greeting" is requested
                 expression { $SKIP_CI == 0 }
             }
             steps {
@@ -76,7 +73,6 @@ pipeline {
         }
         stage('Push Version') {
             when {
-                // Only say hello if a "greeting" is requested
                 expression { $SKIP_CI == 0 }
             }
             steps {
