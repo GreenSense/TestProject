@@ -86,5 +86,5 @@ pipeline {
     }
 }
 Boolean shouldSkipBuild() {
-    return sh( script: "sh check-ci-skip.sh', returnStdout: true ) == 1
+    return sh( script: "sh check-ci-skip.sh', returnStdout: true )
 }
