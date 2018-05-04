@@ -103,13 +103,6 @@ pipeline {
     }
 }
 def IsSkipCI(l) {
-    RESULT="${5}(git log -1 | grep -c '.*[ci skip].*')"
-    #echo $RESULT
-    if [ $RESULT = 1 ]; then
-        echo "Skip CI"
-        return 1
-    else
-        echo "Continue CI"
-        return 0
-    fi
+    . ./check-ci-skip.sh
+    return $SKIP_CI
 }
