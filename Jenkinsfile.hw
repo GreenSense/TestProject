@@ -36,46 +36,29 @@ pipeline {
                 sh 'sh test.sh'
             }
         }
-        /*stage('Clean') {
-            when {
-                expression {
-                    return !IsSkipCI()
-                }
-            }
-            steps {
+        stage('Clean') {
+            when { expression { !shouldSkipBuild() } }
                 sh 'sh clean.sh'
             }
         }
         stage('Graduate') {
-            when {
-                expression {
-                    return !IsSkipCI()
-                }
-            }
+            when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh graduate.sh'
             }
         }
         stage('Increment Version') {
-            when {
-                expression {
-                    return !IsSkipCI()
-                }
-            }
+            when { expression { !shouldSkipBuild() } }
             steps {
               sh 'sh increment-version.sh'
             }
         }
         stage('Push Version') {
-            when {
-                expression {
-                    return !IsSkipCI()
-                }
-            }
+            when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh push-version.sh'
             }
-        }*/
+        }
     }
     post {
         always {
