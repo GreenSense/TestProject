@@ -24,11 +24,6 @@ pipeline {
                 sh 'sh init.sh'
             }
         }
-        stage('Check skip CI') {
-            steps {
-                sh '. ./check-ci-skip.sh'
-            }
-        }
         stage('Build') {
             when {
                 expression {
