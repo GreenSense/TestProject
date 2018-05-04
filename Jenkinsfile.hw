@@ -26,7 +26,9 @@ pipeline {
         }
         stage('View Skip CI') {
             steps {
-                SKIP_CI=IsSkipCI()
+                SKIP_CI=sh (
+                    script: "echo hello",
+                returnStatus: true ) == 0
                 sh 'echo Skip: $SKIP_CI'
             }
         }
@@ -113,7 +115,7 @@ pipeline {
         }
     }
 }
-def IsSkipCI() {
+Boolean IsSkipCI() {
     sh check-ci-skip.sh
     return $SKIP_CI
 }
