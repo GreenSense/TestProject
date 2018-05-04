@@ -24,8 +24,18 @@ pipeline {
                 sh 'sh init.sh'
             }
         }
-        stage('Build') {
+        stage('Check skip CI') {
             steps {
+                sh 'sh check-ci-skip.sh'
+            }
+        }
+        stage('Build') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { $SKIP_CI = 0 }
+            }
+            steps {
+            
                 sh 'sh build.sh'
             }
         }
