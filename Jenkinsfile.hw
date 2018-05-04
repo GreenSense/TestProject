@@ -32,7 +32,7 @@ pipeline {
         stage('Build') {
             when {
                 expression {
-                    return $SKIP_CI == 0
+                    return CheckSkipCI()
                 }
             }
             steps {
@@ -41,7 +41,7 @@ pipeline {
         }
         stage('Test') {
             when {
-                expression { $SKIP_CI == 0 }
+                expression { 1 == 0 }
             }
             steps {
                 sh 'sh test.sh'
@@ -49,7 +49,7 @@ pipeline {
         }
         stage('Clean') {
             when {
-                expression { $SKIP_CI == 0 }
+                expression { 1 == 0 }
             }
             steps {
                 sh 'sh clean.sh'
@@ -57,7 +57,7 @@ pipeline {
         }
         stage('Graduate') {
             when {
-                expression { $SKIP_CI == 0 }
+                expression { 1 == 0 }
             }
             steps {
                 sh 'sh graduate.sh'
@@ -65,7 +65,7 @@ pipeline {
         }
         stage('Increment Version') {
             when {
-                expression { $SKIP_CI == 0 }
+                expression { 1 == 0 }
             }
             steps {
               sh 'sh increment-version.sh'
@@ -73,7 +73,7 @@ pipeline {
         }
         stage('Push Version') {
             when {
-                expression { $SKIP_CI == 0 }
+                expression { 1 == 0 }
             }
             steps {
                 sh 'sh push-version.sh'
@@ -101,4 +101,15 @@ pipeline {
             )
         }
     }
+}
+def IsSkipCI(l) {
+    RESULT="$(git log -1 | grep -c '.*\[ci skip\].*')"
+    #echo $RESULT
+    if [ $RESULT = 1 ]; then
+        echo "Skip CI"
+        return 1
+    else
+        echo "Continue CI"
+        return 0
+    fi
 }
