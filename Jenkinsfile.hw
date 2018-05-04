@@ -27,14 +27,14 @@ pipeline {
         stage('Build') {
             when {
                 expression {
-                    !IsSkipCI()
+                    1
                 }
             }
             steps {
                 sh 'sh build.sh'
             }
         }
-        stage('Test') {
+        /*stage('Test') {
             when {
                 expression {
                     return !IsSkipCI()
@@ -83,7 +83,7 @@ pipeline {
             steps {
                 sh 'sh push-version.sh'
             }
-        }
+        }*/
     }
     post {
         always {
