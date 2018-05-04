@@ -7,3 +7,4 @@ else
     echo "Continue CI"
     SKIP_CI=0
 fi
+exit $SKIP_CI

@@ -88,7 +88,7 @@ pipeline {
 Boolean shouldSkipBuild() {
     //output = sh(script: "git log -1 --pretty=%B", returnStdout: true)
     //output ==~ /(?m).*skipci.*/
-    sh(script: "check-ci-skip.sh", returnStdout: true)
-    return $SKIP_CI
+    
+    return sh(script: "check-ci-skip.sh", returnStdout: true)
 }
 
