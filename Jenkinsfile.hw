@@ -88,4 +88,3 @@ pipeline {
 Boolean shouldSkipBuild() {
     return 0
 }
-
