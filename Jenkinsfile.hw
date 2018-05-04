@@ -15,11 +15,13 @@ pipeline {
             }
         }
         stage('Prepare') {
+            when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh prepare.sh'
             }
         }
         stage('Init') {
+            when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh init.sh'
             }
