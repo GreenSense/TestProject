@@ -25,12 +25,10 @@ pipeline {
             }
         }
         stage('View Skip CI') {
-            steps {
                 SKIP_CI=sh (
                     script: "echo hello",
                 returnStatus: true ) == 0
                 sh 'echo Skip: $SKIP_CI'
-            }
         }
         stage('Build') {
             when {
