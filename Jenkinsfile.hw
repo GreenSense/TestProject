@@ -25,26 +25,18 @@ pipeline {
             }
         }
         stage('Build') {
-            when {
-                expression {
-                    !shouldSkipBuild()
-                }
-            }
+            when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh build.sh'
             }
         }
-        /*stage('Test') {
-            when {
-                expression {
-                    return !IsSkipCI()
-                }
-            }
+        stage('Test') {
+            when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh test.sh'
             }
         }
-        stage('Clean') {
+        /*stage('Clean') {
             when {
                 expression {
                     return !IsSkipCI()
@@ -109,5 +101,5 @@ pipeline {
 }
 Boolean shouldSkipBuild() {
     output = sh(script: "git log -1 --pretty=%B", returnStdout: true)
-    output ==~ /(?m).*skipci.*/
+    output ==~ /(?m).*[skip ci].*/
 }
