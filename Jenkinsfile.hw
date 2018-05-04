@@ -49,7 +49,7 @@ pipeline {
                 sh 'sh graduate.sh'
             }
         }
-        stage('Increment Version') {
+        /*stage('Increment Version') {
             when { expression { !shouldSkipBuild() } }
             steps {
               sh 'sh increment-version.sh'
@@ -60,7 +60,7 @@ pipeline {
             steps {
                 sh 'sh push-version.sh'
             }
-        }
+        }*/
     }
     post {
         always {
