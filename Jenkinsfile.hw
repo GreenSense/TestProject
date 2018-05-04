@@ -36,7 +36,9 @@ pipeline {
         }
         stage('Test') {
             when {
-                expression { 1 == 0 }
+                expression {
+                    return !IsSkipCI()
+                }
             }
             steps {
                 sh 'sh test.sh'
@@ -44,7 +46,9 @@ pipeline {
         }
         stage('Clean') {
             when {
-                expression { 1 == 0 }
+                expression {
+                    return !IsSkipCI()
+                }
             }
             steps {
                 sh 'sh clean.sh'
@@ -52,7 +56,9 @@ pipeline {
         }
         stage('Graduate') {
             when {
-                expression { 1 == 0 }
+                expression {
+                    return !IsSkipCI()
+                }
             }
             steps {
                 sh 'sh graduate.sh'
@@ -60,7 +66,9 @@ pipeline {
         }
         stage('Increment Version') {
             when {
-                expression { 1 == 0 }
+                expression {
+                    return !IsSkipCI()
+                }
             }
             steps {
               sh 'sh increment-version.sh'
@@ -68,7 +76,9 @@ pipeline {
         }
         stage('Push Version') {
             when {
-                expression { 1 == 0 }
+                expression {
+                    return !IsSkipCI()
+                }
             }
             steps {
                 sh 'sh push-version.sh'
