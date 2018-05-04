@@ -38,9 +38,10 @@ pipeline {
                 sh 'sh test.sh'
             }
         }
-        /*stage('Clean') {
+        stage('Clean') {
             when { expression { !shouldSkipBuild() } }
-                sh 'sh clean.sh'
+            steps {
+                sh 'sh graduate.sh'
             }
         }
         stage('Graduate') {
@@ -60,7 +61,7 @@ pipeline {
             steps {
                 sh 'sh push-version.sh'
             }
-        }*/
+        }
     }
     post {
         always {
