@@ -7,5 +7,5 @@ else
     echo "Continue CI"
     SKIP_CI=0
 fi
-exit 1
-#exit $SKIP_CI
+
+exit $SKIP_CI
