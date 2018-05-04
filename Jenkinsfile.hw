@@ -44,7 +44,7 @@ pipeline {
                 sh 'sh graduate.sh'
             }
         }
-        stage('Graduate') {
+        /*stage('Graduate') {
             when { expression { !shouldSkipBuild() } }
             steps {
                 sh 'sh graduate.sh'
@@ -61,7 +61,7 @@ pipeline {
             steps {
                 sh 'sh push-version.sh'
             }
-        }
+        }*/
     }
     post {
         always {
