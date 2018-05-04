@@ -15,7 +15,7 @@ pipeline {
             }
         }
         stage('Prepare') {
-            when { expression { !shouldSkipBuild() } }
+            when { expression { return !shouldSkipBuild() } }
             steps {
                 sh 'sh prepare.sh'
             }
