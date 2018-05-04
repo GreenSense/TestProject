@@ -24,16 +24,10 @@ pipeline {
                 sh 'sh init.sh'
             }
         }
-        stage('View Skip CI') {
-                SKIP_CI=sh (
-                    script: "echo hello",
-                returnStatus: true ) == 0
-                sh 'echo Skip: $SKIP_CI'
-        }
         stage('Build') {
             when {
                 expression {
-                    1
+                    shouldSkipBuild()
                 }
             }
             steps {
@@ -113,7 +107,7 @@ pipeline {
         }
     }
 }
-Boolean IsSkipCI() {
-    sh check-ci-skip.sh
-    return $SKIP_CI
+Boolean shouldSkipBuild() {
+    output = sh(script: "git log -1 --pretty=%B", returnStdout: true)
+    output ==~ /(?m).*skipci.*/
 }
