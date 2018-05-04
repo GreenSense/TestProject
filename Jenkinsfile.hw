@@ -24,6 +24,12 @@ pipeline {
                 sh 'sh init.sh'
             }
         }
+        stage('View Skip CI') {
+            steps {
+                SKIP_CI=IsSkipCI()
+                sh 'echo Skip: $SKIP_CI'
+            }
+        }
         stage('Build') {
             when {
                 expression {
