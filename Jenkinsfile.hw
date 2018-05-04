@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Check skip CI') {
             steps {
-                sh 'sh check-ci-skip.sh'
+                sh '. ./check-ci-skip.sh'
             }
         }
         stage('Build') {
