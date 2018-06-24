@@ -70,7 +70,7 @@ pipeline {
             )
         }
         failure() {
-          sh('sh rollback.sh')
+          sh 'sh rollback.sh'
           emailext (
               subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
               body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
