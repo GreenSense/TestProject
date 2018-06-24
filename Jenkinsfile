@@ -78,9 +78,6 @@ pipeline {
               recipientProviders: [[$class: 'DevelopersRecipientProvider']]
             )
         }
-        always {
-            cleanWs()
-        }
     }
 }
 Boolean shouldSkipBuild() {
