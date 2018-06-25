@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Preclean') {
-            steps {
-                cleanWs()
-            }
-        }
         stage('Setup') {
             steps {
                 sh "git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master"
@@ -73,6 +68,7 @@ pipeline {
                 <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
               recipientProviders: [[$class: 'DevelopersRecipientProvider']]
             )
+          cleanWs()
         }
         failure() {
           sh 'sh rollback.sh'
@@ -82,6 +78,7 @@ pipeline {
                 <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
               recipientProviders: [[$class: 'DevelopersRecipientProvider']]
             )
+          cleanWs()
         }
     }
 }
