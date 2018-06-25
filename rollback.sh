@@ -12,9 +12,6 @@ then
   echo "Resetting to previous revision" && \
   git reset --hard HEAD~1 && \
   
-  echo "Committing reset" && \
-  git commit -am "Rolling back to previous version due to CI failure" && \
-  
   echo "Pushing back to origin/master" && \
   git pull origin master && \
   git push origin master && \
