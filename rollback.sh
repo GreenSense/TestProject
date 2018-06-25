@@ -10,14 +10,14 @@ then
   git pull origin master && \
 
   echo "Resetting to previous revision" && \
-  git reset --hard HEAD~1 && \
+  git reset --hard HEAD~1
   
-  echo "Committing rollback" && \
-  git commit -am "Rolling back" && \
+  echo "Committing rollback"
+  git commit -am "Rolling back"
   
-  echo "Pushing back to origin/master" && \
-  git pull origin master && \
-  git push origin master && \
+  echo "Pushing back to origin/master"
+  git pull origin master
+  git push origin master
 
   echo "The 'master' branch has been rolled back"  || \
 
