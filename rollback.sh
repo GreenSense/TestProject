@@ -8,9 +8,11 @@ then
 
   git pull origin master && \
 
-  git reset --soft HEAD~1 && \
+  git reset --hard HEAD~1 && \
   
   git commit -am "Rolling back to previous version due to CI failure" && \
+  
+  git pull origin master && \
   
   git push origin master && \
 
