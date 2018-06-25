@@ -12,6 +12,9 @@ then
   echo "Resetting to previous revision" && \
   git reset --hard HEAD~1 && \
   
+  echo "Committing rollback" && \
+  git commit -am "Rolling back" && \
+  
   echo "Pushing back to origin/master" && \
   git pull origin master && \
   git push origin master && \
