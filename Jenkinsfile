@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                cleanWs()
                 sh "git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master"
                 sh "git fetch --no-tags"
                 sh 'git checkout $BRANCH_NAME'
