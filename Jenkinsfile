@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Clean') {
+        stage('Preclean') {
             steps {
                 cleanWs()
             }
