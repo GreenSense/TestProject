@@ -13,6 +13,7 @@ then
   git reset --hard HEAD~1 && \
   
   echo "Pushing back to origin/master" && \
+  git pull origin master && \
   git push origin master && \
 
   echo "The 'master' branch has been rolled back"  || \
