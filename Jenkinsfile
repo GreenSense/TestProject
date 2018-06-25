@@ -1,6 +1,9 @@
 pipeline {
     agent any
     stages {
+        stage('Clean') {
+            cleanWs()
+        }
         stage('Setup') {
             steps {
                 sh "git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master"
