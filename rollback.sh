@@ -16,8 +16,7 @@ then
   git commit -am "Rolling back"
   
   echo "Pushing back to origin/master"
-  git pull origin master
-  git push origin master
+  git push --force origin master
 
   echo "The 'master' branch has been rolled back"  || \
 
