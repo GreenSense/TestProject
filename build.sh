@@ -1,3 +1,3 @@
 echo "Building..."
 
-exit 1
+#exit 1
