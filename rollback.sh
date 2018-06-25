@@ -10,8 +10,7 @@ then
   git pull origin master && \
 
   echo "Resetting to previous revision" && \
-  #git reset --hard HEAD~1 && \
-  git revert HEAD~1 && \
+  git reset --hard HEAD~1 && \
   
   echo "Committing rollback" && \
   git commit -am "Rolling back" && \
