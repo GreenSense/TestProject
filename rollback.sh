@@ -10,9 +10,8 @@ then
   #git pull origin master && \
 
   echo "Reverting to previous revision" && \
-  git revert --no-commit HEAD~1 && \
 
-  git commit -am "Reverted to previous version" && \
+  git revert -q HEAD~1 && \
 
   echo "Pushing back to origin/master" && \
   git push --force origin master && \
