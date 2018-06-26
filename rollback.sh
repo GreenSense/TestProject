@@ -11,7 +11,6 @@ then
 
   echo "Reverting to previous revision" && \
   git reset --hard HEAD~1 && \
-  git commit -am "Rolled back to previous revision" && \
 
   echo "Pushing back to origin/master" && \
   git push --force origin master && \
