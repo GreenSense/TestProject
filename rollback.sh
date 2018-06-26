@@ -6,12 +6,13 @@ if [ "$BRANCH" = "master" ]
 then
   echo "Rolling back the master branch to previous revision"
 
-  #echo "Pulling from origin/master" && \
-  #git pull origin master && \
+  echo "Pulling from origin/master" && \
+  git pull origin master && \
 
   echo "Reverting to previous revision" && \
 
-  git revert -q HEAD~1 && \
+  git revert --no-commit HEAD~1 && \
+  git commit -am "Rolled back to previous revision" && \
 
   echo "Pushing back to origin/master" && \
   git push --force origin master && \
