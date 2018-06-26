@@ -11,7 +11,7 @@ then
 
   echo "Reverting to previous revision" && \
 
-  git revert HEAD~1 && \
+  git revert HEAD~2 && \
 
   echo "Pushing back to origin/master" && \
   git push --force origin master && \
