@@ -1,4 +1,4 @@
 echo "Testing..."
 
 
-exit 1
+#exit 1
