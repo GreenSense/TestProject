@@ -10,8 +10,7 @@ then
   git pull origin master && \
 
   echo "Reverting to previous revision" && \
-
-  git revert HEAD~2 && \
+  git revert HEAD~1 && \
 
   echo "Pushing back to origin/master" && \
   git push --force origin master && \
