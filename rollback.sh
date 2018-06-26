@@ -9,8 +9,8 @@ then
   echo "Pulling from origin/master" && \
   git pull origin master && \
 
-  echo "Resetting to previous revision" && \
-  git reset --hard HEAD~1 && \
+  echo "Reverting to previous revision" && \
+  git revert --hard HEAD~1 && \
   
   echo "Pushing back to origin/master" && \
   git push --force origin master && \
