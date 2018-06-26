@@ -6,8 +6,8 @@ if [ "$BRANCH" = "master" ]
 then
   echo "Rolling back the master branch to previous revision"
 
-  echo "Pulling from origin/master" && \
-  git pull origin master && \
+  #echo "Pulling from origin/master" && \
+  #git pull origin master && \
 
   echo "Reverting to previous revision" && \
   git revert HEAD~1 && \
